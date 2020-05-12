@@ -10,8 +10,7 @@ services:
   test:
     image: www-fx-com-tests:latest
     build:
-      context: .
-      dockerfile: Dockerfile.tests
+      context: tests
     depends_on:
       - web
     environment:
