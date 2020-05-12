@@ -1,0 +1,18 @@
+version: '3.4'
+services:
+  web:
+    image: www-fx-com:latest
+    build:
+      context: .
+    ports:
+    - 8080:80
+
+  test:
+    image: www-fx-com-tests:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.tests
+    depends_on:
+      - web
+    environment:
+      BASE_URL: http://web
