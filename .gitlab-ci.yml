@@ -1,5 +1,9 @@
 stages:
   - build
+  - deploy
+
+include:
+  - remote: "https://raw.githubusercontent.com/mozmeao/gitlab-library/helm-version-substitute/helm.yml"
 
 build:
   stage: build
@@ -13,3 +17,19 @@ build:
     - make push
   after_script:
     - make stop
+
+deploy-stage:
+  stage: deploy
+  only:
+    - master
+  tags:
+    - mozmeao
+    - aws
+  extends:
+    - .helm_deploy_aws
+  variables:
+    subdir: "k8s"
+    KUBECONFIGS: "oregon-b:/home/gitlab-runner/.kube/oregon-b.kubeconfig"
+    NS: www-firefox-com-stage
+  before_script:
+    - export VERSION="$CI_COMMIT_SHORT_SHA"
