@@ -3,7 +3,7 @@ stages:
   - deploy
 
 include:
-  - remote: "https://raw.githubusercontent.com/mozmeao/gitlab-library/helm-version-substitute/helm.yml"
+  - remote: "https://raw.githubusercontent.com/mozmeao/gitlab-library/b4544c03c1e415450e426b2fa0c2eeb0d4476b38/helm.yml"
 
 build:
   stage: build
