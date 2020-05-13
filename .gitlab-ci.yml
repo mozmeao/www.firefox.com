@@ -11,5 +11,6 @@ build:
   script:
     - docker-compose build
     - docker-compose run test
-    - docker-compose down
     - docker-compose push web
+  after_script:
+    - docker-compose down
