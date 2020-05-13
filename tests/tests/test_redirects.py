@@ -24,6 +24,14 @@ URLS = (
     ('/pdx/', 'https://www.mozilla.org/firefox/new/?xv=portland&campaign=city-portland-2018&redirect_source=firefox-com'),
     ('/pair/', 'https://accounts.firefox.com/pair/', 301),
     ('/any/other/url', 'https://www.mozilla.org/firefox/new/?redirect_source=firefox-com'),
+    ('/', 'https://www.mozilla.org/firefox/new/?redirect_source=firefox-com'),
+)
+HEADERS = (
+    ("Cache-Control", "public, max-age=1800"),
+    ("Strict-Transport-Security", "max-age=31536000"),
+    ("X-Content-Type-Options", "nosniff"),
+    ("X-Frame-Options", "DENY"),
+    ("X-XSS-Protection", "1; mode=block"),
 )
 
 
@@ -36,3 +44,18 @@ def assert_redirect(base_url, url, location, code=302):
 @pytest.mark.parametrize('args', URLS, ids=itemgetter(0))
 def test_redirect(args, base_url):
     assert_redirect(base_url, *args)
+
+
+def test_security_headers(base_url):
+    resp = requests.get(base_url, allow_redirects=False)
+    for header, value in HEADERS:
+        assert resp.headers[header] == value
+
+
+def test_healthz(base_url):
+    resp = requests.get(f'{base_url}/healthz/', allow_redirects=False)
+    assert resp.status_code == 200
+    assert 'Content-Security-Policy' in resp.headers
+    assert 'Firefox.com Redirector Service' in resp.text
+
+
