@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: www-firefox-com
+  labels:
+    run: www-firefox-com
+  annotations:
+     service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 443
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    app: www-firefox-com
