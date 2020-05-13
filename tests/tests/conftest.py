@@ -1,13 +1,8 @@
-import os
-
 import pytest
 
 
-DEFAULT_BASE_URL = os.getenv('BASE_URL', 'http://localhost:8080')
-
-
 def pytest_addoption(parser):
-    parser.addoption("--base-url", action="store", dest='base_url', default=DEFAULT_BASE_URL,
+    parser.addoption("--base-url", action="store", dest='base_url', default='http://localhost:8080',
                      help="Base URL against which to run the tests")
 
 
