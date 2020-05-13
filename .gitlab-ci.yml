@@ -38,7 +38,7 @@ build:
     - mozmeao
     - aws
   script:
-    - kubectl rollout status -n $NS deployment.v1.apps/www-firefox-com
+    - kubectl rollout status -n $NS deployment.v1.apps/www-firefox-com -w --timeout=10m
     - docker-compose pull test
     - docker-compose run test
 
