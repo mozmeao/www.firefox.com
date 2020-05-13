@@ -5,7 +5,7 @@ import requests
 
 
 URLS = (
-    ('/m/FOO', 'https://www.mozilla.org/m/FOO', 301),
+    ('/m/FOO', 'https://www.mozilla.org/firefox/new/?redirect_source=firefox-com'),
     ('/universityambassadors', 'https://campus.mozilla.community/?redirect_source=firefox-com'),
     ('/os/FOO', 'https://www.mozilla.org/firefox/os/?redirect_source=firefox-com'),
     ('/desktop/FOO', 'https://www.mozilla.org/firefox/desktop/?redirect_source=firefox-com', 301),
