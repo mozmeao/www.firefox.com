@@ -22,7 +22,7 @@ $ make test-prod
 $ make run
 ```
 
-Then open your browser to https://localhost:8080/healthz/ and you should see a page.
+Then open your browser to http://localhost:8080/healthz/ and you should see a page.
 The `make test` and `make run` commands will stop the old containers and build new ones every time.
 If you're just working with the `content` folder then you shouldn't need to restart
 to see your changes. You will need to restart the system for changes to the `nginx.conf`.
