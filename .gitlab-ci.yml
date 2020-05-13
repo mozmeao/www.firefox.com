@@ -33,3 +33,4 @@ deploy-stage:
     NS: www-firefox-com-stage
   before_script:
     - export VERSION="$CI_COMMIT_SHORT_SHA"
+  when: on_success
