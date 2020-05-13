@@ -46,8 +46,9 @@ def test_redirect(args, base_url):
     assert_redirect(base_url, *args)
 
 
-def test_security_headers(base_url):
-    resp = requests.get(base_url, allow_redirects=False)
+@pytest.mark.parametrize('path', ['/', '/healthz/'])
+def test_security_headers(path, base_url):
+    resp = requests.get(f'{base_url}{path}', allow_redirects=False)
     for header, value in HEADERS:
         assert resp.headers[header] == value
 
