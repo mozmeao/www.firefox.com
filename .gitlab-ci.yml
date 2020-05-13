@@ -9,8 +9,7 @@ build:
     - mozmeao
     - aws
   script:
-    - docker-compose build
-    - docker-compose run test
-    - docker-compose push web
+    - make test
+    - make push
   after_script:
-    - docker-compose down
+    - make stop

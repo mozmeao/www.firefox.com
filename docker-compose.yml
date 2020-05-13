@@ -6,6 +6,8 @@ services:
       context: .
     ports:
     - 8080:80
+    volumes:
+    - ./content/:/app/content:delegated
 
   test:
     image: mozmeao/www.firefox.com:tests-${CI_COMMIT_SHORT_SHA:-latest}
