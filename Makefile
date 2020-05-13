@@ -23,10 +23,10 @@ run: build
 	${DC} up web
 
 pull: stop
-	${DC} pull web
+	${DC} pull web test
 
 push:
-	${DC} push web
+	${DC} push web test
 
 test: build
 	${DC} run test

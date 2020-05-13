@@ -1,6 +1,7 @@
 stages:
   - build
   - deploy
+  - test
 
 include:
   - remote: "https://raw.githubusercontent.com/mozmeao/gitlab-library/e008d3eb69070c2214a2b25d26565af16fbb7b45/helm.yml"
@@ -9,6 +10,7 @@ build:
   stage: build
   only:
     - master
+    - prod
   tags:
     - mozmeao
     - aws
@@ -18,10 +20,8 @@ build:
   after_script:
     - make stop
 
-deploy-stage:
+.deploy:
   stage: deploy
-  only:
-    - master
   tags:
     - mozmeao
     - aws
@@ -30,5 +30,47 @@ deploy-stage:
   variables:
     subdir: "k8s"
     KUBECONFIGS: "oregon-b:/home/gitlab-runner/.kube/oregon-b.kubeconfig"
-    NS: www-firefox-com-stage
   when: on_success
+
+.test:
+  stage: test
+  tags:
+    - mozmeao
+    - aws
+  script:
+    - kubectl rollout status -n $NS deployment.v1.apps/www-firefox-com
+    - docker-compose pull test
+    - docker-compose run test
+
+deploy-stage:
+  extends:
+    - .deploy
+  only:
+    - master
+  variables:
+    NS: www-firefox-com-stage
+
+deploy-prod:
+  extends:
+    - .deploy
+  only:
+    - prod
+  variables:
+    NS: www-firefox-com-prod
+
+test-stage:
+  extends:
+    - .test
+  only:
+    - master
+  variables:
+    NS: www-firefox-com-stage
+    BASE_URL: http://a45dd64a3955f11eabf5f06855448c47-2111790911.us-west-2.elb.amazonaws.com:443
+
+test-prod:
+  extends:
+    - .test
+  only:
+    - prod
+  variables:
+    NS: www-firefox-com-prod
