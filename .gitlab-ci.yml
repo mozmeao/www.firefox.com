@@ -3,7 +3,7 @@ stages:
   - deploy
 
 include:
-  - remote: "https://raw.githubusercontent.com/mozmeao/gitlab-library/b4544c03c1e415450e426b2fa0c2eeb0d4476b38/helm.yml"
+  - remote: "https://raw.githubusercontent.com/mozmeao/gitlab-library/e008d3eb69070c2214a2b25d26565af16fbb7b45/helm.yml"
 
 build:
   stage: build
@@ -31,6 +31,4 @@ deploy-stage:
     subdir: "k8s"
     KUBECONFIGS: "oregon-b:/home/gitlab-runner/.kube/oregon-b.kubeconfig"
     NS: www-firefox-com-stage
-  before_script:
-    - export VERSION="$CI_COMMIT_SHORT_SHA"
   when: on_success
