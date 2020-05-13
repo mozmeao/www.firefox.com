@@ -1,0 +1,14 @@
+stages:
+  - build
+
+build:
+  stage: build
+  only:
+    - master
+  tags:
+    - mozmeao
+    - aws
+  script:
+    - docker-compose build
+    - docker-compose run test
+    - docker-compose push web

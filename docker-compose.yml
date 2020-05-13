@@ -1,14 +1,14 @@
 version: '3.4'
 services:
   web:
-    image: www-fx-com:latest
+    image: mozmeao/www.firefox.com:${CI_COMMIT_SHORT_SHA:-latest}
     build:
       context: .
     ports:
     - 8080:80
 
   test:
-    image: www-fx-com-tests:latest
+    image: mozmeao/www.firefox.com:tests-${CI_COMMIT_SHORT_SHA:-latest}
     build:
       context: tests
     depends_on:
