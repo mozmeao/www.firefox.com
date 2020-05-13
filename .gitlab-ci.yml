@@ -41,8 +41,7 @@ build:
     KUBECONFIG: "/home/gitlab-runner/.kube/oregon-b.kubeconfig"
   script:
     - kubectl rollout status -n $NS deployment.v1.apps/www-firefox-com -w --timeout=10m
-    - docker-compose pull test
-    - docker-compose run test
+    - docker run -e BASE_URL --rm mozmeao/www.firefox.com:tests-${CI_COMMIT_SHORT_SHA}
 
 deploy-stage:
   extends:
