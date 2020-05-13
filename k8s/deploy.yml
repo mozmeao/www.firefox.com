@@ -25,7 +25,7 @@ spec:
       name: www-firefox-com
     spec:
       containers:
-        image: mozmeao/www.firefox.com:VERSION
+      - image: mozmeao/www.firefox.com:VERSION
         imagePullPolicy: Always
         name: www-firefox-com-web
         livenessProbe:
