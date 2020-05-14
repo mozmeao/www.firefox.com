@@ -4,16 +4,15 @@ stages:
   - test
 
 include:
-  - remote: "https://raw.githubusercontent.com/mozmeao/gitlab-library/e008d3eb69070c2214a2b25d26565af16fbb7b45/helm.yml"
+  - remote: "https://raw.githubusercontent.com/mozmeao/gitlab-library/master/job_imports.yml"
 
 build:
   stage: build
   only:
     - master
     - prod
-  tags:
-    - mozmeao
-    - aws
+  extends:
+    - .aws_runner
   script:
     - make test
     - make push
@@ -22,10 +21,8 @@ build:
 
 .deploy:
   stage: deploy
-  tags:
-    - mozmeao
-    - aws
   extends:
+    - .aws_runner
     - .helm_deploy_aws
   variables:
     subdir: "k8s"
@@ -34,9 +31,8 @@ build:
 
 .test:
   stage: test
-  tags:
-    - mozmeao
-    - aws
+  extends:
+    - .aws_runner
   variables:
     KUBECONFIG: "/home/gitlab-runner/.kube/oregon-b.kubeconfig"
   script:
