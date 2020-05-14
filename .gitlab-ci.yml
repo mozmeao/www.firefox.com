@@ -4,7 +4,7 @@ stages:
   - test
 
 include:
-  - remote: "https://raw.githubusercontent.com/mozmeao/gitlab-library/master/job_imports.yml"
+  - remote: "https://raw.githubusercontent.com/mozmeao/gitlab-library/v1.0.0/job_imports.yml"
 
 build:
   stage: build
