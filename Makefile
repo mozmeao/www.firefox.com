@@ -10,7 +10,7 @@ help:
 	@echo "  pull          - pull the latest production images from Docker Hub"
 	@echo "  push          - push the latest image built to the Docker Hub"
 	@echo "  test          - run the tests against the local container"
-	@echo "  test-prod     - run the tests against www.firefox.com"
+	@echo "  test-external - run the tests against the domain in the BASE_URL environment var."
 
 
 stop:
@@ -31,7 +31,10 @@ push:
 test: build
 	${DC} run test
 
-test-prod: build
-	${DC} run test-prod
+test-external:
+	${DC} run -e BASE_URL test-external
 
-.PHONY: all help stop build run pull test test-prod
+wait-for-deploy:
+	kubectl rollout status -n $(NS) deployment.v1.apps/www-firefox-com -w --timeout=10m
+
+.PHONY: all help stop build run pull test test-external wait-for-deploy
