@@ -28,8 +28,9 @@ pull: stop
 push:
 	${DC} push web test
 
-test: build
+test: stop
 	${DC} run test
+	${DC} down
 
 test-external:
 	${DC} run -e BASE_URL test-external

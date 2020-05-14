@@ -14,8 +14,8 @@ build:
   extends:
     - .aws_runner
   script:
+    - bin/build-and-push.sh
     - make test
-    - make push
   after_script:
     - make stop
 
