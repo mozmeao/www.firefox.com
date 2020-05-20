@@ -13,6 +13,8 @@ if docker pull "$DOCKER_IMAGE"; then
     exit 0
 fi
 
+# pull latest images
+CI_COMMIT_SHORT_SHA= make pull
 make build
 
 # push git tagged images
