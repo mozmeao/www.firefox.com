@@ -7,6 +7,8 @@ DOCKER_TEST_IMAGE="mozmeao/www.firefox.com:tests-${CI_COMMIT_SHORT_SHA}"
 DOCKER_TEST_IMAGE_LATEST="mozmeao/www.firefox.com:tests-latest"
 
 if docker pull "$DOCKER_IMAGE"; then
+    # also pull the test image so it can be run in the following step
+    docker pull "$DOCKER_TEST_IMAGE"
     # image already exists, skip the build and push
     exit 0
 fi
