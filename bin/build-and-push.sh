@@ -14,7 +14,8 @@ if docker pull "$DOCKER_IMAGE"; then
 fi
 
 # pull latest images
-CI_COMMIT_SHORT_SHA= make pull
+docker pull "$DOCKER_IMAGE_LATEST"
+docker pull "$DOCKER_TEST_IMAGE_LATEST"
 make build
 
 # push git tagged images
