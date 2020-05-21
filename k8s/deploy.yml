@@ -6,7 +6,7 @@ metadata:
     type: web
   name: www-firefox-com
 spec:
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       app: www-firefox-com
