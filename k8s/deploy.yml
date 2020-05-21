@@ -53,8 +53,7 @@ spec:
         ports:
           - containerPort: 9113
         args:
-          - -nginx.scrape-uri
-          - http://localhost:8080/stub_status
+          - "-nginx.scrape-uri=http://localhost:8080/stub_status"
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
