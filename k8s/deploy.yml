@@ -6,9 +6,9 @@ metadata:
     type: web
   name: www-firefox-com
   annotations:
-    prometheus.io/path: /metrics
+    prometheus.io/path: "/metrics"
     prometheus.io/port: "9113"
-    prometheus.io/scrape: true
+    prometheus.io/scrape: "true"
 spec:
   replicas: 5
   selector:
