@@ -28,6 +28,8 @@ spec:
       - image: mozmeao/www.firefox.com:${CI_COMMIT_SHORT_SHA}
         imagePullPolicy: Always
         name: www-firefox-com-web
+        ports:
+          - containerPort: 8080
         livenessProbe:
           failureThreshold: 1
           initialDelaySeconds: 10
@@ -38,6 +40,17 @@ spec:
             scheme: HTTP
             port: 8080
           timeoutSeconds: 5
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      - name: prometheus-exporter
+        imagePullPolicy: Always
+        image: nginx/nginx-prometheus-exporter:0.7.0
+        ports:
+          - containerPort: 9113
+        args:
+          - -nginx.scrape-uri
+          - http://localhost:8080/stub_status
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
