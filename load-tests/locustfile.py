@@ -31,7 +31,7 @@ class WebsiteUser(HttpUser):
 
     @task(10)
     def get_redirect(self):
-        self.client.get(random.choice(URLS), name='/redirect')
+        self.client.get(random.choice(URLS), name='/redirect', allow_redirects=False)
 
     @task(1)
     def health_check(self):
