@@ -7,7 +7,7 @@ metadata:
   name: www-firefox-com
   annotations:
     prometheus.io/path: /metrics
-    prometheus.io/port: 9113
+    prometheus.io/port: "9113"
     prometheus.io/scrape: true
 spec:
   replicas: 5
