@@ -33,7 +33,7 @@ spec:
         imagePullPolicy: Always
         name: www-firefox-com-web
         ports:
-          - containerPort: "8080"
+          - containerPort: 8080
         livenessProbe:
           failureThreshold: 1
           initialDelaySeconds: 10
@@ -51,7 +51,7 @@ spec:
         imagePullPolicy: Always
         image: nginx/nginx-prometheus-exporter:0.7.0
         ports:
-          - containerPort: "9113"
+          - containerPort: 9113
         args:
           - -nginx.scrape-uri
           - http://localhost:8080/stub_status
