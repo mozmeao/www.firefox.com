@@ -5,10 +5,6 @@ metadata:
     app: www-firefox-com
     type: web
   name: www-firefox-com
-  annotations:
-    prometheus.io/path: "/metrics"
-    prometheus.io/port: "9113"
-    prometheus.io/scrape: "true"
 spec:
   replicas: 5
   selector:
@@ -27,6 +23,10 @@ spec:
         app: www-firefox-com
         type: web
       name: www-firefox-com
+      annotations:
+        prometheus.io/path: "/metrics"
+        prometheus.io/port: "9113"
+        prometheus.io/scrape: "true"
     spec:
       containers:
       - image: mozmeao/www.firefox.com:${CI_COMMIT_SHORT_SHA}
