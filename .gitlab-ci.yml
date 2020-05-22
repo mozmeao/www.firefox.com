@@ -71,3 +71,4 @@ test-prod:
     - prod
   variables:
     NS: www-firefox-com-prod
+    BASE_URL: http://ab2648d199aa111eabf5f06855448c47-1106149848.us-west-2.elb.amazonaws.com:443
