@@ -4,15 +4,15 @@ stages:
   - test
 
 include:
-  - remote: "https://raw.githubusercontent.com/mozmeao/gitlab-library/v1.0.0/job_imports.yml"
+  - remote: "https://raw.githubusercontent.com/mozmeao/gitlab-library/v1.1.0/job_imports.yml"
 
 build:
   stage: build
+  extends:
+    - .aws_runner
   only:
     - master
     - prod
-  extends:
-    - .aws_runner
   script:
     - bin/build-and-push.sh
     - make test
@@ -42,9 +42,8 @@ build:
 deploy-stage:
   extends:
     - .deploy
-  only:
-    - master
   variables:
+    ENV: stage
     NS: www-firefox-com-stage
 
 deploy-prod:
@@ -53,6 +52,7 @@ deploy-prod:
   only:
     - prod
   variables:
+    ENV: prod
     NS: www-firefox-com-prod
 
 test-stage:

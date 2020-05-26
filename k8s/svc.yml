@@ -6,6 +6,8 @@ metadata:
     run: www-firefox-com
   annotations:
      service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
+     service.beta.kubernetes.io/aws-load-balancer-ssl-cert: ${SSLARN}
+     external-dns.alpha.kubernetes.io/hostname: ${DNSADDR}
 spec:
   type: LoadBalancer
   ports:
