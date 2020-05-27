@@ -8,11 +8,11 @@ include:
 
 build:
   stage: build
-  extends:
-    - .aws_runner
   only:
     - master
     - prod
+  extends:
+    - .aws_runner
   script:
     - bin/build-and-push.sh
     - make test
