@@ -26,15 +26,25 @@ build:
     - .helm_deploy_aws
   variables:
     subdir: "k8s"
-    KUBECONFIGS: "oregon-b:/home/gitlab-runner/.kube/oregon-b.kubeconfig"
+    KUBECONFIGS: "oregon-b:/home/gitlab-runner/.kube/oregon-b.kubeconfig,frankfurt:/home/gitlab-runner/.kube/frankfurt.kubeconfig"
   when: on_success
 
-.test:
+.test-oregon:
   stage: test
   extends:
     - .aws_runner
   variables:
     KUBECONFIG: "/home/gitlab-runner/.kube/oregon-b.kubeconfig"
+  script:
+    - make wait-for-deploy
+    - make test-external
+
+.test-frankfurt:
+  stage: test
+  extends:
+    - .aws_runner
+  variables:
+    KUBECONFIG: "/home/gitlab-runner/.kube/frankfurt.kubeconfig"
   script:
     - make wait-for-deploy
     - make test-external
@@ -55,20 +65,38 @@ deploy-prod:
     ENV: prod
     NS: www-firefox-com-prod
 
-test-stage:
+test-stage-oregon:
   extends:
-    - .test
+    - .test-oregon
   only:
     - master
   variables:
     NS: www-firefox-com-stage
     BASE_URL: https://fxc-stage.oregon-b.moz.works
 
-test-prod:
+test-stage-frankfurt:
   extends:
-    - .test
+    - .test-frankfurt
+  only:
+    - master
+  variables:
+    NS: www-firefox-com-stage
+    BASE_URL: https://fxc-stage.frankfurt.moz.works
+
+test-prod-oregon:
+  extends:
+    - .test-oregon
   only:
     - prod
   variables:
     NS: www-firefox-com-prod
     BASE_URL: http://fxc-prod.oregon-b.moz.works
+
+test-prod-frankfurt:
+  extends:
+    - .test-frankfurt
+  only:
+    - prod
+  variables:
+    NS: www-firefox-com-prod
+    BASE_URL: http://fxc-prod.frankfurt.moz.works

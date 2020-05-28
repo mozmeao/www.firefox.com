@@ -1,5 +1,5 @@
 ACCTNUM=$(aws sts get-caller-identity | jq -r .Account)
 
-SSLARN=arn:aws:acm:us-west-2:$ACCTNUM:certificate/a06d2fbc-e4e8-4087-949a-e3ef71b6b010
-DNSADDR=fxc-prod.oregon-b.moz.works
+export SSLARN=arn:aws:acm:us-west-2:$ACCTNUM:certificate/a06d2fbc-e4e8-4087-949a-e3ef71b6b010
+export DNSADDR=fxc-prod.oregon-b.moz.works
 
