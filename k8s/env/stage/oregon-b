@@ -1,0 +1,4 @@
+ACCTNUM=$(aws sts get-caller-identity | jq -r .Account)
+
+export SSLARN=arn:aws:acm:us-west-2:$ACCTNUM:certificate/f1edbca9-9b49-46bf-98f1-52bc6b075923
+export DNSADDR=fxc-stage.oregon-b.moz.works.

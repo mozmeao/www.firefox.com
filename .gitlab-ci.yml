@@ -4,7 +4,7 @@ stages:
   - test
 
 include:
-  - remote: "https://raw.githubusercontent.com/mozmeao/gitlab-library/v1.0.0/job_imports.yml"
+  - remote: "https://raw.githubusercontent.com/mozmeao/gitlab-library/v1.1.0/job_imports.yml"
 
 build:
   stage: build
@@ -42,9 +42,8 @@ build:
 deploy-stage:
   extends:
     - .deploy
-  only:
-    - master
   variables:
+    ENV: stage
     NS: www-firefox-com-stage
 
 deploy-prod:
@@ -53,6 +52,7 @@ deploy-prod:
   only:
     - prod
   variables:
+    ENV: prod
     NS: www-firefox-com-prod
 
 test-stage:
@@ -62,7 +62,7 @@ test-stage:
     - master
   variables:
     NS: www-firefox-com-stage
-    BASE_URL: http://a45dd64a3955f11eabf5f06855448c47-2111790911.us-west-2.elb.amazonaws.com:443
+    BASE_URL: https://fxc-stage.oregon-b.moz.works
 
 test-prod:
   extends:
@@ -71,4 +71,4 @@ test-prod:
     - prod
   variables:
     NS: www-firefox-com-prod
-    BASE_URL: http://ab2648d199aa111eabf5f06855448c47-1106149848.us-west-2.elb.amazonaws.com:443
+    BASE_URL: http://fxc-prod.oregon-b.moz.works
