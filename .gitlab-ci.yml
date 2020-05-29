@@ -90,7 +90,7 @@ test-prod-oregon:
     - prod
   variables:
     NS: www-firefox-com-prod
-    BASE_URL: http://fxc-prod.oregon-b.moz.works
+    BASE_URL: https://fxc-prod.oregon-b.moz.works
 
 test-prod-frankfurt:
   extends:
@@ -99,4 +99,4 @@ test-prod-frankfurt:
     - prod
   variables:
     NS: www-firefox-com-prod
-    BASE_URL: http://fxc-prod.frankfurt.moz.works
+    BASE_URL: https://fxc-prod.frankfurt.moz.works
