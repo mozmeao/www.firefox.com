@@ -52,6 +52,8 @@ build:
 deploy-stage:
   extends:
     - .deploy
+  only:
+    - master
   variables:
     ENV: stage
     NS: www-firefox-com-stage
