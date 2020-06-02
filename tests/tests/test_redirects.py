@@ -23,6 +23,7 @@ URLS = (
     ('/containers/', 'https://www.mozilla.org/firefox/facebookcontainer/?redirect_source=firefox-com'),
     ('/pdx/', 'https://www.mozilla.org/firefox/new/?xv=portland&campaign=city-portland-2018&redirect_source=firefox-com'),
     ('/pair/', 'https://accounts.firefox.com/pair/', 301),
+    ('/nightly/', 'https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly', 301),
     ('/any/other/url', 'https://www.mozilla.org/firefox/new/?redirect_source=firefox-com'),
     ('/', 'https://www.mozilla.org/firefox/new/?redirect_source=firefox-com'),
 )
