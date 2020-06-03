@@ -6,6 +6,21 @@ stages:
 include:
   - remote: "https://raw.githubusercontent.com/mozmeao/gitlab-library/v1.1.0/job_imports.yml"
 
+test_pr:
+  stage: deploy
+  extends:
+    - .aws_runner
+  only:
+    - branches
+  except:
+    - master
+    - prod
+  script:
+    - make build
+    - make test
+  after_script:
+    - make stop
+
 build:
   stage: build
   only:
