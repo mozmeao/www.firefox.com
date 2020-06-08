@@ -4,5 +4,8 @@ WORKDIR /app
 CMD ["bin/run-tests.sh"]
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
+
+
 COPY bin ./bin
+COPY fixtures ./fixtures
 COPY tests ./tests
