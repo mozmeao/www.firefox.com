@@ -38,4 +38,9 @@ test-external:
 wait-for-deploy:
 	kubectl rollout status -n $(NS) deployment.v1.apps/www-firefox-com -w --timeout=10m
 
+test-ssl:
+	ssllabs-scan --quiet "$(BASE_URL)" > "tests/fixtures/ssl.json"
+
+test-all: test-ssl test-external
+
 .PHONY: all help stop build run pull test test-external wait-for-deploy
