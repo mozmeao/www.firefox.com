@@ -78,6 +78,15 @@ URLS = (
     ("/privatsphaere/", "https://www.mozilla.org/firefox/privacy/products/?redirect_source=firefox-com"),
     ("/vieprivee/", "https://www.mozilla.org/firefox/privacy/products/?redirect_source=firefox-com"),
     ("/vieprivée/", "https://www.mozilla.org/firefox/privacy/products/?redirect_source=firefox-com"),
+    ("/unfck/", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
+    (
+        # any incoming query params should combine with the one in the config
+        "/unfck/?utm_campaign=social",
+        "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&utm_campaign=social",
+        301
+    ),
+    ("/unfuck/", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
+    ("/love/", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
     ("/any/other/url", "https://www.mozilla.org/firefox/new/?redirect_source=firefox-com"),
     ("/", "https://www.mozilla.org/firefox/new/?redirect_source=firefox-com"),
 )
