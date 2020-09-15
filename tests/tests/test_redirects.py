@@ -71,15 +71,14 @@ URLS = (
         "https://www.mozilla.org/firefox/new/?xv=portland&campaign=city-portland-2018&redirect_source=firefox-com",
     ),
     ("/pair/", "https://accounts.firefox.com/pair/", 301),
-    (
-        "/nightly/",
-        "https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly",
-        301,
-    ),
-    (
-        "/any/other/url",
-        "https://www.mozilla.org/firefox/new/?redirect_source=firefox-com",
-    ),
+    ("/nightly/", "https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly", 301),
+    ("/join/", "https://www.mozilla.org/firefox/accounts/?redirect_source=join", 301),
+    ("/rejoindre/", "https://www.mozilla.org/firefox/accounts/?redirect_source=join", 301),
+    ("/privacy/", "https://www.mozilla.org/firefox/privacy/products/?redirect_source=firefox-com"),
+    ("/privatsphaere/", "https://www.mozilla.org/firefox/privacy/products/?redirect_source=firefox-com"),
+    ("/vieprivee/", "https://www.mozilla.org/firefox/privacy/products/?redirect_source=firefox-com"),
+    ("/vieprivée/", "https://www.mozilla.org/firefox/privacy/products/?redirect_source=firefox-com"),
+    ("/any/other/url", "https://www.mozilla.org/firefox/new/?redirect_source=firefox-com"),
     ("/", "https://www.mozilla.org/firefox/new/?redirect_source=firefox-com"),
 )
 HEADERS = (
