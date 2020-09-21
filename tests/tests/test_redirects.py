@@ -87,6 +87,7 @@ URLS = (
     ),
     ("/unfuck/", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
     ("/love/", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
+    ("/liebe/", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
     ("/any/other/url", "https://www.mozilla.org/firefox/new/?redirect_source=firefox-com"),
     ("/", "https://www.mozilla.org/firefox/new/?redirect_source=firefox-com"),
 )
