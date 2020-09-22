@@ -88,6 +88,17 @@ URLS = (
     ("/unfuck/", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
     ("/love/", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
     ("/liebe/", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
+    ("/armchair", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
+    ("/jvn", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
+    ("/literally", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
+    ("/pivot", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
+    ("/podsave", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
+    ("/smartless", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
+    ("/thedaily", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
+    ("/ezra", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
+    ("/explained", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
+    ("/wtf", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
+
     ("/any/other/url", "https://www.mozilla.org/firefox/new/?redirect_source=firefox-com"),
     ("/", "https://www.mozilla.org/firefox/new/?redirect_source=firefox-com"),
 )
