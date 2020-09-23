@@ -115,6 +115,8 @@ def assert_redirect(base_url, url, location, code=302):
     resp = requests.get(f"{base_url}{url}", allow_redirects=False)
     assert resp.status_code == code
     assert resp.headers["location"] == location
+    assert resp.headers["Strict-Transport-Security"] == "max-age=31536000"
+    assert resp.headers["Cache-Control"] == "public, max-age=1800"
 
 
 @pytest.mark.parametrize("args", URLS, ids=itemgetter(0))
@@ -122,7 +124,7 @@ def test_redirect(args, base_url):
     assert_redirect(base_url, *args)
 
 
-@pytest.mark.parametrize("path", ["/", "/healthz/"])
+@pytest.mark.parametrize("path", ["/healthz/"])
 def test_security_headers(path, base_url):
     resp = requests.get(f"{base_url}{path}", allow_redirects=False)
     for header, value in HEADERS:
