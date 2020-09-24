@@ -88,16 +88,26 @@ URLS = (
     ("/unfuck/", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
     ("/love/", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
     ("/liebe/", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
-    ("/armchair", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
-    ("/jvn", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
-    ("/literally", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
-    ("/pivot", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
-    ("/podsave", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
-    ("/smartless", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
-    ("/thedaily", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
-    ("/ezra", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
-    ("/explained", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
-    ("/wtf", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
+    ("/armchair", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
+                  "utm_medium=audio&utm_source=armchair&utm_campaign=unfck&utm_content=podcast", 301),
+    ("/jvn", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
+             "utm_medium=audio&utm_source=jvn&utm_campaign=unfck&utm_content=podcast", 301),
+    ("/literally", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
+                   "utm_medium=audio&utm_source=literally&utm_campaign=unfck&utm_content=podcast", 301),
+    ("/pivot", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
+               "utm_medium=audio&utm_source=pivot&utm_campaign=unfck&utm_content=podcast", 301),
+    ("/podsave", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
+                 "utm_medium=audio&utm_source=podsave&utm_campaign=unfck&utm_content=podcast", 301),
+    ("/smartless", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
+                   "utm_medium=audio&utm_source=smartless&utm_campaign=unfck&utm_content=podcast", 301),
+    ("/thedaily", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
+                  "utm_medium=audio&utm_source=thedaily&utm_campaign=unfck&utm_content=podcast", 301),
+    ("/ezra", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
+              "utm_medium=audio&utm_source=ezra&utm_campaign=unfck&utm_content=podcast", 301),
+    ("/explained", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
+                   "utm_medium=audio&utm_source=explained&utm_campaign=unfck&utm_content=podcast", 301),
+    ("/wtf", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
+             "utm_medium=audio&utm_source=wtf&utm_campaign=unfck&utm_content=podcast", 301),
 
     ("/any/other/url", "https://www.mozilla.org/firefox/new/?redirect_source=firefox-com"),
     ("/", "https://www.mozilla.org/firefox/new/?redirect_source=firefox-com"),
