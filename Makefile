@@ -28,7 +28,7 @@ pull: stop
 push:
 	${DC} push web test
 
-test: stop
+test: build
 	${DC} run test
 	${DC} down
 
