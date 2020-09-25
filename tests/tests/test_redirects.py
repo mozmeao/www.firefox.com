@@ -78,16 +78,26 @@ URLS = (
     ("/privatsphaere/", "https://www.mozilla.org/firefox/privacy/products/?redirect_source=firefox-com"),
     ("/vieprivee/", "https://www.mozilla.org/firefox/privacy/products/?redirect_source=firefox-com"),
     ("/vieprivée/", "https://www.mozilla.org/firefox/privacy/products/?redirect_source=firefox-com"),
-    ("/unfck/", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
+    ("/unfck/", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
+                "utm_medium=referral&utm_source=firefox.com&utm_campaign=unfck", 301),
     (
-        # any incoming query params should combine with the one in the config
+        # any incoming utm params should replace the default ones
         "/unfck/?utm_campaign=social",
         "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&utm_campaign=social",
         301
     ),
-    ("/unfuck/", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
-    ("/love/", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
-    ("/liebe/", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com", 301),
+    (
+        # any incoming utm params should replace the default ones
+        "/love?utm_source=twitter&utm_medium=aether",
+        "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&utm_source=twitter&utm_medium=aether",
+        301
+    ),
+    ("/unfuck", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
+                "utm_medium=referral&utm_source=firefox.com&utm_campaign=unfck", 301),
+    ("/love", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
+              "utm_medium=referral&utm_source=firefox.com&utm_campaign=unfck", 301),
+    ("/liebe", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
+               "utm_medium=referral&utm_source=firefox.com&utm_campaign=unfck", 301),
     ("/armchair", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
                   "utm_medium=audio&utm_source=armchair&utm_campaign=unfck&utm_content=podcast", 301),
     ("/jvn", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
