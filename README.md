@@ -9,11 +9,10 @@ $ make test
 ```
 
 You may also run the tests against production (https://www.firefox.com), but there
-will be a number of failures until this service is in production due to changes
-we've made to improve these redirects.
+could be a number of failures if the latest version hasn't been pushed to production yet.
 
 ```bash
-$ make test-prod
+$ BASE_URL=https://www.firefox.com make test-external
 ```
 
 ## Run the service locally
