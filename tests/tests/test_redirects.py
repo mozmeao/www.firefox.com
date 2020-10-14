@@ -133,8 +133,20 @@ HEADERS = (
 )
 
 
+def get_response(base_url, path):
+    if base_url == 'https://firefox.com':
+        resp = requests.get(f"{base_url}{path}", allow_redirects=True)
+        # examine the response from www.firefox.com
+        if path != '/healthz/':
+            resp = resp.history[1]
+    else:
+        resp = requests.get(f"{base_url}{path}", allow_redirects=False)
+
+    return resp
+
+
 def assert_redirect(base_url, url, location, code=302):
-    resp = requests.get(f"{base_url}{url}", allow_redirects=False)
+    resp = get_response(base_url, url)
     assert resp.status_code == code
     assert resp.headers["location"] == location
     assert resp.headers["Strict-Transport-Security"] == "max-age=31536000"
@@ -148,13 +160,13 @@ def test_redirect(args, base_url):
 
 @pytest.mark.parametrize("path", ["/healthz/"])
 def test_security_headers(path, base_url):
-    resp = requests.get(f"{base_url}{path}", allow_redirects=False)
+    resp = get_response(base_url, path)
     for header, value in HEADERS:
         assert resp.headers[header] == value
 
 
 def test_healthz(base_url):
-    resp = requests.get(f"{base_url}/healthz/", allow_redirects=False)
+    resp = get_response(base_url, '/healthz/')
     assert resp.status_code == 200
     assert "Content-Security-Policy" in resp.headers
     assert "Firefox.com Redirector Service" in resp.text
