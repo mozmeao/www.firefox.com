@@ -41,7 +41,7 @@ build:
     - .helm_deploy_aws
   variables:
     subdir: "k8s"
-    KUBECONFIGS: "oregon-b:/home/gitlab-runner/.kube/oregon-b.kubeconfig,frankfurt:/home/gitlab-runner/.kube/frankfurt.kubeconfig"
+    KUBECONFIGS: "or:/home/gitlab-runner/.kube/mozmeao-or-1.kubeconfig,frankfurt:/home/gitlab-runner/.kube/frankfurt.kubeconfig"
   when: on_success
 
 .test-oregon:
