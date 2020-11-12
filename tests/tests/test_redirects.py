@@ -97,7 +97,7 @@ URLS = (
     ("/love", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
               "utm_medium=referral&utm_source=firefox.com&utm_campaign=unfck", 301),
     ("/liebe", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
-               "utm_medium=referral&utm_source=firefox.com&utm_campaign=unfck", 301),
+               "utm_medium=audio&utm_source=prosieben&utm_campaign=unfck&utm_content=podcast", 301),
     ("/rendonslenetplusnet", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
               "utm_medium=referral&utm_source=firefox.com&utm_campaign=unfck", 301),
     ("/armchair", "https://www.mozilla.org/firefox/unfck/?redirect_source=firefox-com&"
