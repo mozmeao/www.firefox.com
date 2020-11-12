@@ -49,7 +49,7 @@ build:
   extends:
     - .aws_runner
   variables:
-    KUBECONFIG: "/home/gitlab-runner/.kube/oregon-b.kubeconfig"
+    KUBECONFIG: "/home/gitlab-runner/.kube/mozmeao-or-1.kubeconfig"
   script:
     - make wait-for-deploy
     - make test-external
