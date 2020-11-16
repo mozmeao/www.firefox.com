@@ -170,3 +170,9 @@ def test_healthz(base_url):
     assert resp.status_code == 200
     assert "Content-Security-Policy" in resp.headers
     assert "Firefox.com Redirector Service" in resp.text
+
+
+def test_hsts_image(base_url):
+    resp = get_response(base_url, '/set_hsts.gif')
+    assert resp.status_code == 200
+    assert "Content-Security-Policy" in resp.headers
