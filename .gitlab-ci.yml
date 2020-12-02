@@ -41,7 +41,7 @@ build:
     - .helm_deploy_aws
   variables:
     subdir: "k8s"
-    KUBECONFIGS: "or:/home/gitlab-runner/.kube/mozmeao-or-1.kubeconfig,frankfurt:/home/gitlab-runner/.kube/frankfurt.kubeconfig"
+    KUBECONFIGS: "mozmeao-or:/home/gitlab-runner/.kube/mozmeao-or-1.kubeconfig,mozmeao-fr:/home/gitlab-runner/.kube/mozmeao-fr-1.kubeconfig"
   when: on_success
 
 .test-oregon:
@@ -59,7 +59,7 @@ build:
   extends:
     - .aws_runner
   variables:
-    KUBECONFIG: "/home/gitlab-runner/.kube/frankfurt.kubeconfig"
+    KUBECONFIG: "/home/gitlab-runner/.kube/mozmeao-fr-1.kubeconfig"
   script:
     - make wait-for-deploy
     - make test-external
